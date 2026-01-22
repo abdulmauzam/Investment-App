@@ -12,7 +12,7 @@ const [userInput,setUserInput] = useState({
     duration: 100,
 })
 
-
+const durationInput = userInput.duration >= 1;
 function handleChange(inputIdentifier, newValue){
 setUserInput(
     prevUserInput => 
@@ -24,7 +24,7 @@ setUserInput(
     <>
       <Header />
       <UserInput userInput={userInput} onChange={handleChange}/>
-      <Results testInput={userInput}/>
+     {durationInput ? <Results input={userInput}/> : "Please enter a correct Value"} 
     </>
   );
 }
